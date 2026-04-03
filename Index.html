@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maria Firmina</title>
+  </head>
+
+  <body>
+    <h1>Maria Firmina</h1>
+
+    <div>
+      <p id="resumo"></p>
+      <button
+        onclick="
+          mostrarBiografiaCompleta();
+          location.hash = 'biografia-completa';
+        "
+        type="button"
+      >
+        <u>Saiba mais</u>
+      </button>
+
+      <section id="biografia-completa"></section>
+      <p id="completo" style="display: none"></p>
+    </div>
+
+    <div id="obras">
+      <h2>Obras</h2>
+      <ul>
+        <a href="livros/paginas/ursula.html">
+          <li><img src="assets/capas/ursula.png" alt="Úrsula" /></li>
+        </a>
+        <a href="livros/paginas/escrava.html">
+          <li><img src="assets/capas/a escrava.png" alt="A Escrava" /></li>
+        </a>
+        <a href="livros/paginas/gupeva.html">
+          <li><img src="assets/capas/gupeva.png" alt="Gupeva" /></li>
+        </a>
+        <a href="livros/paginas/cantos.html">
+          <li>
+            <img src="assets/capas/cantos.png" alt="Cantos a Beira-Mar" />
+          </li>
+        </a>
+      </ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
