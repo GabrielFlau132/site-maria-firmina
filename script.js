@@ -8,14 +8,12 @@ fetch("data.json")
       dados.biografia_resumida.texto;
   });
 
-function mostrarBiografiaCompleta() {
+function abrirModal() {
   if (!dados) return;
 
-  const el = document.getElementById("resumo");
+  const modal = document.getElementById("modal");
+  const texto = document.getElementById("texto-completo");
 
-  if (el.innerText === dados.biografia_completa.texto) {
-    el.innerText = dados.biografia_resumida.texto;
-  } else {
-    el.innerText = dados.biografia_completa.texto;
-  }
+  texto.innerText = dados.biografia_completa.texto;
+  modal.style.display = "block";
 }

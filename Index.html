@@ -11,39 +11,62 @@
 
     <div>
       <p id="resumo"></p>
-      <button
-        onclick="
-          mostrarBiografiaCompleta();
-          location.hash = 'biografia-completa';
-        "
-        type="button"
-      >
+
+      <button onclick="abrirModal()" type="button">
         <u>Saiba mais</u>
       </button>
-
-      <section id="biografia-completa"></section>
-      <p id="completo" style="display: none"></p>
     </div>
 
-    <div id="obras">
+    <div class="obras">
       <h2>Obras</h2>
+
       <ul>
-        <a href="livros/paginas/ursula.html">
-          <li><img src="assets/capas/ursula.png" alt="Úrsula" /></li>
-        </a>
-        <a href="livros/paginas/escrava.html">
-          <li><img src="assets/capas/a escrava.png" alt="A Escrava" /></li>
-        </a>
-        <a href="livros/paginas/gupeva.html">
-          <li><img src="assets/capas/gupeva.png" alt="Gupeva" /></li>
-        </a>
-        <a href="livros/paginas/cantos.html">
-          <li>
-            <img src="assets/capas/cantos.png" alt="Cantos a Beira-Mar" />
-          </li>
-        </a>
+        <li>
+          <a href="livros/paginas/ursula.html">
+            <img src="assets/capas/ursula.png" alt="Úrsula" class="capa" />
+          </a>
+        </li>
+
+        <li>
+          <a href="livros/paginas/escrava.html">
+            <img
+              src="assets/capas/a escrava.png"
+              alt="A Escrava"
+              class="capa"
+            />
+          </a>
+        </li>
+
+        <li>
+          <a href="livros/paginas/gupeva.html">
+            <img src="assets/capas/gupeva.png" alt="Gupeva" class="capa" />
+          </a>
+        </li>
+
+        <li>
+          <a href="livros/paginas/cantos.html">
+            <img
+              src="assets/capas/cantos.png"
+              alt="Cantos a Beira-Mar"
+              class="capa"
+            />
+          </a>
+        </li>
       </ul>
     </div>
+
+    <div id="modal">
+      <div>
+        <p id="texto-completo"></p>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
+
+  <style>
+    .capa {
+      width: 50px;
+    }
+  </style>
 </html>
