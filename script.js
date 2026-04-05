@@ -8,6 +8,9 @@ fetch("data.json") // faz a requisição do arquivo data.json
     document.getElementById("resumo").innerText =
       dados.biografia_resumida.texto; // linka o id "resumo" do html com o texto do json
 
+    document.getElementById("sinopse-ursula").innerText =
+      dados.sinopse_ursula.texto;
+
     // habilita o botão APENAS após dados estarem disponíveis
     document.getElementById("btn-saiba-mais").disabled = false;
   });
