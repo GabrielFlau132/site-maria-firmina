@@ -1,5 +1,8 @@
 .capa {
-  width: 100px;
+  width: 250px;
+  height: 380px;
+  object-fit: cover;
+  display: block;
 }
 
 body {
