@@ -38,11 +38,12 @@ h1 {
 .obras ul{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   gap: 30px;
   background-color: rgba(128, 128, 128, 0.973);
   padding: 20px;
   border-radius: 10px;
-  max-width: 600px;
-  margin: 20px auto;
+  width: auto;
+  margin: 0;
+  min-height: 200px;
 }
