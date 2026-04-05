@@ -1,8 +1,7 @@
 .capa {
   width: 250px;
   height: 380px;
-  object-fit: cover;
-  display: block;
+  border-radius: 20px;
 }
 
 body {
@@ -40,7 +39,7 @@ h1 {
 
 .obras {
   width: auto;
-  background-color: rgba(128, 128, 128, 0.973);
+  background-color: transparent;
   padding: 20px;
   border-radius: 20px;
 }
@@ -53,4 +52,11 @@ h1 {
   gap: 30px;
   margin: 0;
   padding: 0;
+}
+
+.livro {
+  width: auto;
+  background-color: rgb(128, 128, 128);
+  padding: 80px;
+  border-radius: 20px;
 }
