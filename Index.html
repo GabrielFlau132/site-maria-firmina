@@ -12,6 +12,7 @@
     <div>
       <p id="resumo"></p>
 
+      <!-- Botão começa desabilitado até o fetch terminar -->
       <button id="btn-saiba-mais" onclick="abrirModal()" type="button" disabled>
         <u>Saiba mais</u>
       </button>
@@ -55,10 +56,13 @@
       </ul>
     </div>
 
+    <!-- modal começa none (invisível) -->
     <div id="modal" style="display: none">
       <div>
         <p id="texto-completo"></p>
+        <!-- texto preenchido via JS -->
         <button onclick="fecharModal()">Fechar</button>
+        <!-- botao que fecha o modal -->
       </div>
     </div>
 
