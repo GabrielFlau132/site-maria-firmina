@@ -11,6 +11,15 @@ fetch("data.json") // faz a requisição do arquivo data.json
     document.getElementById("sinopse-ursula").innerText =
       dados.sinopse_ursula.texto;
 
+    document.getElementById("sinopse-escrava").innerText =
+      dados.sinopse_escrava.texto;
+
+    document.getElementById("sinopse-gupeva").innerText =
+      dados.sinopse_gupeva.texto;
+
+    document.getElementById("sinopse-cantos").innerText =
+      dados.sinopse_cantos.texto;
+
     // habilita o botão APENAS após dados estarem disponíveis
     document.getElementById("btn-saiba-mais").disabled = false;
   });
