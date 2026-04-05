@@ -1,11 +1,12 @@
 .capa {
-  width: 220px;
+  width: 210px;
   height: 330px;
   border-radius: 20px;
+  object-fit: cover;
 }
 
 body {
-  background-color: #2e2e2ef8;
+  background-color: #000000f8;
   font-family: Arial, sans-serif;
 }
 
@@ -15,7 +16,7 @@ h1 {
 }
 
 .biografia {
-  background-color: rgba(128, 128, 128, 0.973);
+  background-color: rgba(51, 51, 51, 0.973);
   padding: 20px;
   border-radius: 10px;
   max-width: 600px;
@@ -40,8 +41,8 @@ h1 {
 .obras {
   width: auto;
   background-color: transparent;
-  padding: 20px;
-  border-radius: 20px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .obras ul {
@@ -49,25 +50,25 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 30px;
   margin: 0;
   padding: 0;
 }
 
 .livro {
   width: auto;
-  background-color: rgb(128, 128, 128);
+  background-color: rgba(51, 51, 51, 0.973);
   padding: 15px;
   border-radius: 20px;
 }
 
 .livro a {
   text-decoration: none;
-  color: #000000;
+  color: #ffffff;
   display: flex;
   flex-direction: row;
-  max-width: 400px;
+  max-width: 425px;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 30px;
   gap: 20px;
 }
