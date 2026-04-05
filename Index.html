@@ -12,7 +12,7 @@
     <div>
       <p id="resumo"></p>
 
-      <button onclick="abrirModal()" type="button">
+      <button id="btn-saiba-mais" onclick="abrirModal()" type="button" disabled>
         <u>Saiba mais</u>
       </button>
     </div>
@@ -30,7 +30,7 @@
         <li>
           <a href="livros/paginas/escrava.html">
             <img
-              src="assets/capas/a escrava.png"
+              src="assets/capas/a-escrava.png"
               alt="A Escrava"
               class="capa"
             />
@@ -55,9 +55,10 @@
       </ul>
     </div>
 
-    <div id="modal">
+    <div id="modal" style="display: none">
       <div>
         <p id="texto-completo"></p>
+        <button onclick="fecharModal()">Fechar</button>
       </div>
     </div>
 
