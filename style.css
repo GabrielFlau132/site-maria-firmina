@@ -1,10 +1,3 @@
-.capa {
-  width: 210px;
-  height: 330px;
-  border-radius: 20px;
-  object-fit: cover;
-}
-
 body {
   background-color: #000000f8;
   font-family: Arial, sans-serif;
@@ -54,72 +47,147 @@ h1 {
   padding: 0;
 }
 
-.livro {
-  width: auto;
-  background-color: rgba(51, 51, 51, 0.973);
-  padding: 15px;
+.capa {
+  width: 210px;
+  height: 330px;
   border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
-.livro a {
+.container-livro {
+  width: auto;
+  background: linear-gradient(145deg, #2e2e2e, #3a3a3a);
+  padding: 15px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+}
+
+.container-livro:hover {
+  transform: translateY(-30px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8);
+}
+
+.container-livro h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+.container-livro p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #dcdcdc;
+}
+
+.container-livro a {
   text-decoration: none;
   color: #ffffff;
   display: flex;
   flex-direction: row;
-  max-width: 40vh;
+  max-width: 500px;
+  width: 100%;
   justify-content: flex-start;
   align-items: flex-start;
   padding-top: 30px;
   gap: 20px;
+  flex-wrap: nowrap;
 }
 
-#modal {
+.sinopse {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.6;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Fundo escuro com blur */
+.modal {
   position: fixed;
   top: 0;
   left: 0;
-
   width: 100%;
   height: 100%;
 
-  background-color: rgba(0, 0, 0, 0.7);
-
-  justify-content: center;
-  align-items: center;
-
-  z-index: 999;
-}
-
-#modal > div {
-  background-color: #1e1e1e;
-  color: #ffffff;
-
-  width: 90%;
-  max-width: 600px;
-
-  padding: 25px;
-  border-radius: 12px;
-
   display: flex;
-  gap: 20px;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
+/* Modal ativo */
+.modal.ativo {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Caixa do modal */
+.modal > div {
+  background: #1e1e1e;
+  color: #fff;
+
+  padding: 30px;
+  border-radius: 16px;
+
+  width: 75%;
+
+  max-height: 80vh;
+  overflow-y: auto;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+/* Animação ao abrir */
+.modal.ativo > div {
+  transform: translateY(0);
+}
+
+/* Texto */
 #texto-completo {
   font-size: 16px;
   line-height: 1.6;
-
-  max-height: 400px;
-  overflow-y: auto;
+  margin-bottom: 20px;
 }
 
-#modal button {
-  align-self: flex-end;
-
-  background-color: transparent;
-  border: 2px solid rgb(219, 126, 5);
-  color: rgb(219, 126, 5);
-
-  padding: 8px 14px;
+/* Botão */
+.modal button {
+  background: rgb(219, 126, 5);
+  border: none;
   border-radius: 8px;
 
-  font-size: 14px;
+  padding: 10px 20px;
+  color: #000;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.modal button:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .container-livro a {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .capa {
+    width: 180px;
+    height: auto;
+  }
 }
