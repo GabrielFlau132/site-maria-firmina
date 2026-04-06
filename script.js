@@ -55,3 +55,5 @@ document.getElementById("modal").addEventListener("click", (e) => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") fecharModal();
 });
+
+//05/04
