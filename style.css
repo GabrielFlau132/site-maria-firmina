@@ -1,11 +1,12 @@
 body {
   margin: 0;
-  background: radial-gradient(
-    circle at right,
-    rgb(219, 126, 5) -60%,
-    rgba(0, 0, 0, 0.98) 100%
-  );
-  font-family: Arial, sans-serif;
+  background: black;
+}
+
+.conteudo {
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
 }
 
 h1 {
@@ -13,19 +14,24 @@ h1 {
   color: rgb(219, 126, 5);
   text-align: center;
 }
+
 h2 {
   color: rgb(231, 231, 231);
 }
+
 p {
   color: rgb(231, 231, 231);
 }
 
 .biografia {
-  background-color: rgba(51, 51, 51, 0.973);
-  padding: 20px;
-  border-radius: 10px;
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  padding: 24px;
+  border-radius: 16px;
   max-width: 600px;
-  margin: 150px 0 20px 20px;
+  margin: 120px 0 20px 20px;
 }
 
 .txt_bio {
@@ -48,7 +54,7 @@ p {
   background-color: transparent;
   padding: 10px;
   border-radius: 10px;
-  margin-top: 15vh;
+  margin-top: 30vh;
 }
 
 .obras ul {
@@ -143,7 +149,7 @@ p {
 }
 
 /* Caixa do modal */
-.modal > div {
+.modal>div {
   background: #1e1e1e;
   color: #fff;
 
@@ -162,7 +168,7 @@ p {
 }
 
 /* Animação ao abrir */
-.modal.ativo > div {
+.modal.ativo>div {
   transform: translateY(0);
 }
 
@@ -202,4 +208,73 @@ p {
     width: 180px;
     height: auto;
   }
+}
+
+
+.bg-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+
+  background: radial-gradient(circle at right,
+      rgb(219, 126, 5) -60%,
+      rgba(0, 0, 0, 0.98) 100%);
+}
+
+.bg-pattern-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 240px;
+
+  background-image: url('assets/pattern_cima.png');
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  z-index: 0;
+}
+
+.bg-pattern-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 240px;
+
+  background-image: url('assets/pattern_baixo.png');
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  z-index: 0;
+}
+
+.bg-firmina {
+  position: absolute;
+  right: -120px;
+  bottom: 240px;
+
+  height: 100%;
+  max-height: 1100px;
+
+  object-fit: contain;
+
+  transform: scaleX(-1) scale(1);
+  transform-origin: bottom center;
+
+  pointer-events: auto;
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+
+  z-index: 5;
+}
+
+.bg-firmina:hover {
+  transform: scaleX(-1) scale(1.02);
+}
+
+.bg-pattern-top,
+.bg-pattern-bottom {
+  z-index: 1;
+  pointer-events: none;
 }
