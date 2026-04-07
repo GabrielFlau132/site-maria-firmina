@@ -215,7 +215,6 @@ p {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  isolation: isolate;
 
   background: radial-gradient(circle at right,
       rgb(219, 126, 5) -60%,
@@ -267,10 +266,6 @@ p {
     box-shadow 0.3s ease-in-out;
 
   z-index: 5;
-}
-
-.bg-firmina:hover {
-  transform: scaleX(-1) scale(1.02);
 }
 
 .bg-pattern-top,
