@@ -149,7 +149,7 @@ p {
 }
 
 /* Caixa do modal */
-.modal>div {
+.modal > div {
   background: #1e1e1e;
   color: #fff;
 
@@ -168,7 +168,7 @@ p {
 }
 
 /* Animação ao abrir */
-.modal.ativo>div {
+.modal.ativo > div {
   transform: translateY(0);
 }
 
@@ -210,15 +210,16 @@ p {
   }
 }
 
-
 .bg-wrapper {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
 
-  background: radial-gradient(circle at right,
-      rgb(219, 126, 5) -60%,
-      rgba(0, 0, 0, 0.98) 100%);
+  background: radial-gradient(
+    circle at right,
+    rgb(219, 126, 5) -60%,
+    rgba(0, 0, 0, 0.98) 100%
+  );
 }
 
 .bg-pattern-top {
@@ -266,6 +267,11 @@ p {
     box-shadow 0.3s ease-in-out;
 
   z-index: 5;
+}
+
+.bg-firmina:hover {
+  transform: scaleX(-1) scale(1.05) translateY(-20px);
+  filter: brightness(1.1);
 }
 
 .bg-pattern-top,
