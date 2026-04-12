@@ -72,3 +72,54 @@ h1 {
   padding-top: 30px;
   gap: 20px;
 }
+
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.7);
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+}
+
+#modal > div {
+  background-color: #1e1e1e;
+  color: #ffffff;
+
+  width: 90%;
+  max-width: 600px;
+
+  padding: 25px;
+  border-radius: 12px;
+
+  display: flex;
+  gap: 20px;
+}
+
+#texto-completo {
+  font-size: 16px;
+  line-height: 1.6;
+
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+#modal button {
+  align-self: flex-end;
+
+  background-color: transparent;
+  border: 2px solid rgb(219, 126, 5);
+  color: rgb(219, 126, 5);
+
+  padding: 8px 14px;
+  border-radius: 8px;
+
+  font-size: 14px;
+}
