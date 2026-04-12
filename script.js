@@ -73,14 +73,20 @@ document.addEventListener("keydown", (e) => {
 /* =====================================================
  * MODAL DE LIVROS (DINÂMICO COM TEMPLATE)
  * ===================================================== */
-async function abrirModalLivro(templateid, targetid, livro_object) {
+function abrirModalLivro(templateid, targetid, livro_object) {
   const template = document.getElementById(templateid);
+
+  if (!template) {
+    console.warn("template nao encontrado:", templateid);
+    return;
+  }
+
   const clone = template.content.cloneNode(true);
 
-  const livro = dados.livros[chaveLivro];
+  const livro = dados.livros[livro_object];
 
   if (!livro) {
-    console.warn("livro nao encontrado:", chaveLivro);
+    console.warn("livro nao encontrado:", livro_object);
     return;
   }
 
@@ -98,8 +104,8 @@ async function abrirModalLivro(templateid, targetid, livro_object) {
     clone.querySelector(".livro-capa").src = livro.capa;
   }
 
-  if (livro.sinopse) {
-    clone.querySelector(".livro-sinopse").textContent = livro.sinopse;
+  if (livro.contexto) {
+    clone.querySelector(".livro-contexto").textContent = livro.contexto;
   }
 
   if (livro.resumo) {
@@ -115,14 +121,13 @@ async function abrirModalLivro(templateid, targetid, livro_object) {
   target.innerHTML = "";
   document.getElementById(targetid).appendChild(clone);
 
-  /* --------- ATIVAÇÃO DO MODAL --------- */
+  const modal = target.querySelector(".modal-livro");
+
   setTimeout(() => {
-    const modal = document.querySelector(".modal-livro");
     modal.classList.add("ativo");
   }, 0);
 
   /* --------- EVENTO DE FECHAMENTO --------- */
-  const modal = target.querySelector(".modal-livro");
 
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
