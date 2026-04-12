@@ -338,43 +338,66 @@ p {
 }
 
 /* blocos de texto */
-.livro-contexto,
-.livro-resumo {
-  font-size: 24px;
-  background: #252525;
-  padding: 16px;
-  border-radius: 8px;
+.col-direita {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 
-  overflow-y: auto;
-  line-height: 1.5;
-
-  flex: 1;
+  overflow-y: auto; /* scroll único */
+  padding-right: 12px; /* espaço p/ scrollbar */
 }
 
 /* info */
 .livro-info {
-  font-size: 16px;
+  font-size: 24px;
   color: #aaa;
 }
 
 /* botão */
 .livro-download {
-  align-self: flex-start;
+  margin: 0 auto;
 
-  background: #cf5d00;
+  background: linear-gradient(135deg, #cf5d00, #ff7a00);
   color: #fff;
 
-  padding: 10px 16px;
-  border-radius: 6px;
-
   text-decoration: none;
-  font-size: 14px;
+  padding: 20px 32px;
+  border-radius: 10px;
 
-  transition: 0.2s;
+  font-size: 28px;
+  font-weight: 600;
+
+  transition: all 0.2s ease;
 }
 
 .livro-download:hover {
-  background: #008ecc;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(207, 93, 0, 0.4);
+}
+
+.livro-bloco h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: #fff;
+  border-left: 4px solid #cf5d00;
+  padding-left: 10px;
+}
+
+.livro-resumo,
+.livro-contexto {
+  font-size: 22px;
+  background: #252525;
+  padding: 16px;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+.livro-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  margin-bottom: 50px;
 }
 
 /* =====================================================
