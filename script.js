@@ -73,9 +73,16 @@ document.addEventListener("keydown", (e) => {
 /* =====================================================
  * MODAL DE LIVROS (DINÂMICO COM TEMPLATE)
  * ===================================================== */
-async function abrirModalLivro(url, templateid, targetid, livro) {
+async function abrirModalLivro(templateid, targetid, livro_object) {
   const template = document.getElementById(templateid);
   const clone = template.content.cloneNode(true);
+
+  const livro = dados.livros[chaveLivro];
+
+  if (!livro) {
+    console.warn("livro nao encontrado:", chaveLivro);
+    return;
+  }
 
   /* --------- PREENCHIMENTO DO TEMPLATE --------- */
   clone.querySelector(".livro-titulo").textContent = livro.titulo;

@@ -240,55 +240,141 @@ p {
 /* =====================================================
  * MODAL (LIVROS)
  * ===================================================== */
+
 .modal-livro {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
 
   z-index: 9999;
 
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
 }
 
-/* estado ativo */
 .modal-livro.ativo {
   opacity: 1;
   pointer-events: all;
 }
 
 .modal-content-livro {
-  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
-  color: #fff;
+  background: #1c1c1c;
+  color: #eaeaea;
 
-  padding: 30px;
-  border-radius: 16px;
+  width: 85vw;
+  height: 85vh;
 
-  width: 75%;
-  max-width: 600px;
+  border-radius: 12px;
+  padding: 24px;
 
-  max-height: 80vh;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 
   transform: translateY(20px);
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease;
 }
 
-/* animação */
 .modal-livro.ativo .modal-content-livro {
   transform: translateY(0);
+}
+
+/* ======================== LAYOUT ======================== */
+
+.livro-layout {
+  display: grid;
+  grid-template-columns: 750px 1fr;
+  gap: 32px;
+  height: 100%;
+}
+
+/* -------- ESQUERDA -------- */
+
+.col-esquerda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.livro-capa {
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* -------- DIREITA -------- */
+
+.col-direita {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  overflow: hidden;
+}
+
+/* título */
+.livro-titulo {
+  font-size: 64px;
+  font-weight: 700;
+  text-align: center;
+
+  letter-spacing: 1px;
+
+  border-bottom: 1px solid #333;
+  padding-bottom: 12px;
+}
+
+/* blocos de texto */
+.livro-sinopse,
+.livro-resumo {
+  font-size: 24px;
+  background: #252525;
+  padding: 16px;
+  border-radius: 8px;
+
+  overflow-y: auto;
+  line-height: 1.5;
+
+  flex: 1;
+}
+
+/* info */
+.livro-info {
+  font-size: 16px;
+  color: #aaa;
+}
+
+/* botão */
+.livro-download {
+  align-self: flex-start;
+
+  background: #cf5d00;
+  color: #fff;
+
+  padding: 10px 16px;
+  border-radius: 6px;
+
+  text-decoration: none;
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+.livro-download:hover {
+  background: #008ecc;
 }
 
 /* =====================================================

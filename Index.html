@@ -15,18 +15,14 @@
         <div class="livro-layout">
           <div class="col-esquerda">
             <img class="livro-capa" />
-
-            <div class="livro-info"></div>
-
-            <a class="livro-download" target="_blank">Download do PDF</a>
           </div>
 
           <div class="col-direita">
             <h2 class="livro-titulo"></h2>
-
             <div class="livro-sinopse"></div>
-
             <div class="livro-resumo"></div>
+            <div class="livro-info"></div>
+            <a class="livro-download" target="_blank">Download do PDF</a>
           </div>
         </div>
       </div>
@@ -76,15 +72,9 @@
               <a
                 onclick="
                   abrirModalLivro(
-                    'modal.html',
                     'template-modal-livro',
                     'main-modal',
-                    {
-                      titulo: 'Úrsula',
-                      autor: 'Maria Firmina',
-                      ano: 1880,
-                      genero: 'Romance',
-                    },
+                    'ursula-object',
                   )
                 "
               >
@@ -101,15 +91,9 @@
               <a
                 onclick="
                   abrirModalLivro(
-                    'modal.html',
                     'template-modal-livro',
                     'main-modal',
-                    {
-                      titulo: 'A Escrava',
-                      autor: 'Maria Firmina',
-                      ano: 1880,
-                      genero: 'Romance',
-                    },
+                    'escrava-object',
                   )
                 "
               >
@@ -130,15 +114,9 @@
               <a
                 onclick="
                   abrirModalLivro(
-                    'modal.html',
                     'template-modal-livro',
                     'main-modal',
-                    {
-                      titulo: 'Gupeva',
-                      autor: 'Maria Firmina',
-                      ano: 1880,
-                      genero: 'Romance',
-                    },
+                    'gupeva-object',
                   )
                 "
               >
@@ -155,15 +133,9 @@
               <a
                 onclick="
                   abrirModalLivro(
-                    'modal.html',
                     'template-modal-livro',
                     'main-modal',
-                    {
-                      titulo: 'Cantos a Beira-Mar',
-                      autor: 'Maria Firmina',
-                      ano: 1880,
-                      genero: 'Romance',
-                    },
+                    'cantos-object',
                   )
                 "
               >
