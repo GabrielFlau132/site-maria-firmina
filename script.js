@@ -25,21 +25,48 @@ fetch("data.json") // faz a requisição do arquivo data.json
   });
 
 function abrirModal() {
-  // redundancia pra evitar executar antes do fetch terminar/rodar (async)
   if (!dados) {
     console.warn("dados nao carregados");
     return;
   }
 
-  const modal = document.getElementById("modal"); // linka o id "modal" do html com a variavel modal do js
-  const texto = document.getElementById("texto-completo"); // linka o id "texto-completo" do html com o texto do json
+  const modal = document.getElementById("modal");
+  const texto = document.getElementById("texto-completo");
 
-  // injeta o texto vindo do JSON no modal
   texto.innerText = dados.biografia_completa.texto;
 
-  modal.style.display = "block"; // muda o style do modal para "block" (visível)
+  modal.classList.add("ativo");
 }
 
 function fecharModal() {
-  document.getElementById("modal").style.display = "none"; // muda o style do modal para "none" (invisível)
+  document.getElementById("modal").classList.remove("ativo");
 }
+
+const modal = document.getElementById("modal");
+
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) fecharModal();
+});
+
+document.getElementById("modal").addEventListener("click", (e) => {
+  if (e.target.id === "modal") fecharModal();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") fecharModal();
+});
+
+async function abrirModalLivro(url, templateid, targetid) {
+  const response = await fetch(url);
+  const html = await response.text();
+  const divtemp = document.createElement("div");
+  divtemp.innerHTML = html;
+  const template = divtemp.querySelector(`#${templateid}`);
+  const clone = template.content.cloneNode(true);
+
+  document.getElementById(targetid).appendChild(clone);
+}
+
+abrirModalLivro("Modal.html", targetid = "modal-livro", templateid = "main modal");
+
+//05/04
