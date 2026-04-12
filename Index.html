@@ -1,100 +1,189 @@
 <!doctype html>
 <html lang="en">
+  <!-- ============ HEAD ============ -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maria Firmina</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maria Firmina</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
-
-  <div class="bg-wrapper">
-    <div class="bg-pattern-top"></div>
-
-    <div class="bg-firmina-wrapper">
-      <img src="assets/firmina.png" class="bg-firmina" />
+  <!-- ============ TEMPLATE (MODAL LIVRO) ============ -->
+  <template id="template-modal-livro">
+    <div class="modal-livro">
+      <div class="modal-content-livro">
+        <h2>{{ livro.titulo }}</h2>
+        <p><strong>Autor:</strong> {{ livro.autor }}</p>
+        <p><strong>Ano de Publicação:</strong> {{ livro.ano }}</p>
+        <p><strong>Gênero:</strong> {{ livro.genero }}</p>
+      </div>
     </div>
+  </template>
 
-    <div class="bg-pattern-bottom"></div>
+  <!-- ============ BODY ============ -->
+  <body>
+    <!-- ============ BACKGROUND / WRAPPER ============ -->
+    <div class="bg-wrapper">
+      <div class="bg-pattern-top"></div>
 
-    <div class="conteudo">
-      <h1>Maria Firmina</h1>
-
-      <div class="biografia">
-        <p id="resumo" class="txt_bio"></p>
-
-        <!-- Botão começa desabilitado até o fetch terminar -->
-        <button id="btn-saiba-mais" onclick="abrirModal()" type="button" disabled class="button">
-          <u>Saiba mais</u>
-        </button>
+      <div class="bg-firmina-wrapper">
+        <img src="assets/firmina.png" class="bg-firmina" />
       </div>
 
-      <h2>Obras</h2>
-      <p>Confira as obras de Maria Firmina:</p>
+      <div class="bg-pattern-bottom"></div>
 
-      <div class="obras">
-        <ul>
-          <li class="container-livro">
-            <a href="livros/paginas/ursula.html">
-              <img src="assets/capas/ursula.png" alt="Úrsula" class="capa" />
-              <div class="sinopse">
-                <h3 class="titulo_obra">Úrsula</h3>
-                <p id="sinopse-ursula" class="txt_sinopse"></p>
-              </div>
-            </a>
-          </li>
+      <!-- ============ CONTEÚDO PRINCIPAL ============ -->
+      <div class="conteudo">
+        <h1>Maria Firmina</h1>
 
-          <li class="container-livro">
-            <a href="livros/paginas/escrava.html">
-              <img src="assets/capas/a-escrava.png" alt="A Escrava" class="capa" />
-              <div class="sinopse">
-                <h3 class="titulo_obra">A Escrava</h3>
-                <p id="sinopse-escrava" class="txt_sinopse"></p>
-              </div>
-            </a>
-          </li>
+        <!-- ============ BIOGRAFIA ============ -->
+        <div class="biografia">
+          <p id="resumo" class="txt_bio"></p>
 
-          <li class="container-livro">
-            <a href="livros/paginas/gupeva.html">
-              <img src="assets/capas/gupeva.png" alt="Gupeva" class="capa" />
-              <div class="sinopse">
-                <h3 class="titulo_obra">Gupeva</h3>
-                <p id="sinopse-gupeva" class="txt_sinopse"></p>
-              </div>
-            </a>
-          </li>
+          <!-- Botão começa desabilitado até o fetch terminar -->
+          <button
+            id="btn-saiba-mais"
+            onclick="abrirModal()"
+            type="button"
+            disabled
+            class="button"
+          >
+            <u>Saiba mais</u>
+          </button>
+        </div>
 
-          <li class="container-livro">
-            <a href="livros/paginas/cantos.html">
-              <img src="assets/capas/cantos.png" alt="Cantos a Beira-Mar" class="capa" />
-              <div class="sinopse">
-                <h3 class="titulo_obra">Cantos a Beira-Mar</h3>
-                <p id="sinopse-cantos" class="txt_sinopse"></p>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
+        <!-- ============ OBRAS ============ -->
+        <h2>Obras</h2>
+        <p>Confira as obras de Maria Firmina:</p>
 
-      <!-- modal começa none (invisível) -->
-      <div id="modal" class="modal">
-        <div>
-          <p id="texto-completo"></p>
-          <!-- texto preenchido via JS -->
-          <button onclick="fecharModal()">Fechar</button>
-          <!-- botao que fecha o modal -->
+        <div class="obras">
+          <ul>
+            <!-- ================= LIVRO: ÚRSULA ================= -->
+            <li class="container-livro">
+              <a
+                onclick="
+                  abrirModalLivro(
+                    'modal.html',
+                    'template-modal-livro',
+                    'main-modal',
+                    {
+                      titulo: 'Úrsula',
+                      autor: 'Maria Firmina',
+                      ano: 1880,
+                      genero: 'Romance',
+                    },
+                  )
+                "
+              >
+                <img src="assets/capas/ursula.png" alt="Úrsula" class="capa" />
+                <div class="sinopse">
+                  <h3 class="titulo_obra">Úrsula</h3>
+                  <p id="sinopse-ursula" class="txt_sinopse"></p>
+                </div>
+              </a>
+            </li>
+
+            <!-- ================= LIVRO: A ESCRAVA ================= -->
+            <li class="container-livro">
+              <a
+                onclick="
+                  abrirModalLivro(
+                    'modal.html',
+                    'template-modal-livro',
+                    'main-modal',
+                    {
+                      titulo: 'A Escrava',
+                      autor: 'Maria Firmina',
+                      ano: 1880,
+                      genero: 'Romance',
+                    },
+                  )
+                "
+              >
+                <img
+                  src="assets/capas/a-escrava.png"
+                  alt="A Escrava"
+                  class="capa"
+                />
+                <div class="sinopse">
+                  <h3 class="titulo_obra">A Escrava</h3>
+                  <p id="sinopse-escrava" class="txt_sinopse"></p>
+                </div>
+              </a>
+            </li>
+
+            <!-- ================= LIVRO: GUPEVA ================= -->
+            <li class="container-livro">
+              <a
+                onclick="
+                  abrirModalLivro(
+                    'modal.html',
+                    'template-modal-livro',
+                    'main-modal',
+                    {
+                      titulo: 'Gupeva',
+                      autor: 'Maria Firmina',
+                      ano: 1880,
+                      genero: 'Romance',
+                    },
+                  )
+                "
+              >
+                <img src="assets/capas/gupeva.png" alt="Gupeva" class="capa" />
+                <div class="sinopse">
+                  <h3 class="titulo_obra">Gupeva</h3>
+                  <p id="sinopse-gupeva" class="txt_sinopse"></p>
+                </div>
+              </a>
+            </li>
+
+            <!-- ================= LIVRO: CANTOS ================= -->
+            <li class="container-livro">
+              <a
+                onclick="
+                  abrirModalLivro(
+                    'modal.html',
+                    'template-modal-livro',
+                    'main-modal',
+                    {
+                      titulo: 'Cantos a Beira-Mar',
+                      autor: 'Maria Firmina',
+                      ano: 1880,
+                      genero: 'Romance',
+                    },
+                  )
+                "
+              >
+                <img
+                  src="assets/capas/cantos.png"
+                  alt="Cantos a Beira-Mar"
+                  class="capa"
+                />
+                <div class="sinopse">
+                  <h3 class="titulo_obra">Cantos a Beira-Mar</h3>
+                  <p id="sinopse-cantos" classa="txt_sinopse"></p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ============ MODAL (BIOGRAFIA) ============ -->
+        <div id="modal" class="modal">
+          <div>
+            <p id="texto-completo"></p>
+            <!-- texto preenchido via JS -->
+            <button onclick="fecharModal()">Fechar</button>
+            <!-- botao que fecha o modal -->
+          </div>
         </div>
       </div>
-
     </div>
-  </div>
 
-  <div id="main modal"></div>
+    <!-- ============ CONTAINER MODAL DINÂMICO ============ -->
+    <div id="main-modal"></div>
 
-  <script src="script.js"></script>
-
-</body>
-
+    <!-- ============ SCRIPT ============ -->
+    <script src="script.js"></script>
+  </body>
 </html>

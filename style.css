@@ -1,14 +1,35 @@
+/* =====================================================
+ * RESET / BASE
+ * ===================================================== */
 body {
   margin: 0;
   background: black;
 }
 
+/* =====================================================
+ * LAYOUT PRINCIPAL
+ * ===================================================== */
 .conteudo {
   position: relative;
   z-index: 10;
   pointer-events: auto;
 }
 
+.bg-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+  background: radial-gradient(
+    circle at right,
+    rgb(219, 126, 5) -60%,
+    rgba(0, 0, 0, 0.98) 100%
+  );
+}
+
+/* =====================================================
+ * TIPOGRAFIA
+ * ===================================================== */
 h1 {
   margin: 20px auto;
   color: rgb(219, 126, 5);
@@ -23,6 +44,23 @@ p {
   color: rgb(231, 231, 231);
 }
 
+.txt_bio {
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.sinopse {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.6;
+  flex: 1;
+  min-width: 0;
+}
+
+/* =====================================================
+ * BIOGRAFIA
+ * ===================================================== */
 .biografia {
   background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -34,12 +72,9 @@ p {
   margin: 120px 0 20px 20px;
 }
 
-.txt_bio {
-  color: #ffffff;
-  font-size: 18px;
-  line-height: 1.6;
-}
-
+/* =====================================================
+ * BOTÕES
+ * ===================================================== */
 .button {
   background-color: hsl(0, 0%, 0%);
   border: 2px solid rgb(50, 50, 50);
@@ -49,6 +84,9 @@ p {
   cursor: pointer;
 }
 
+/* =====================================================
+ * OBRAS / LIVROS
+ * ===================================================== */
 .obras {
   width: auto;
   background-color: transparent;
@@ -64,14 +102,6 @@ p {
   justify-content: space-around;
   margin: 0;
   padding: 0;
-}
-
-.capa {
-  width: 210px;
-  height: 330px;
-  border-radius: 20px;
-  object-fit: cover;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
 .container-livro {
@@ -113,15 +143,17 @@ p {
   flex-wrap: nowrap;
 }
 
-.sinopse {
-  color: #ffffff;
-  font-size: 16px;
-  line-height: 1.6;
-  flex: 1;
-  min-width: 0;
+.capa {
+  width: 210px;
+  height: 330px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
-/* Fundo escuro com blur */
+/* =====================================================
+ * MODAL (BIOGRAFIA)
+ * ===================================================== */
 .modal {
   position: fixed;
   top: 0;
@@ -141,13 +173,13 @@ p {
   transition: opacity 0.3s ease;
 }
 
-/* Modal ativo */
+/* estado ativo */
 .modal.ativo {
   opacity: 1;
   pointer-events: all;
 }
 
-/* Caixa do modal */
+/* caixa do modal */
 .modal > div {
   background: #1e1e1e;
   color: #fff;
@@ -166,19 +198,19 @@ p {
   transition: transform 0.3s ease;
 }
 
-/* Animação ao abrir */
+/* animação */
 .modal.ativo > div {
   transform: translateY(0);
 }
 
-/* Texto */
+/* conteúdo */
 #texto-completo {
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 20px;
 }
 
-/* Botão */
+/* botão */
 .modal button {
   background: rgb(219, 126, 5);
   border: none;
@@ -196,31 +228,63 @@ p {
   opacity: 0.85;
 }
 
-@media (max-width: 768px) {
-  .container-livro a {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+/* =====================================================
+ * MODAL (LIVROS)
+ * ===================================================== */
+.modal-livro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
-  .capa {
-    width: 180px;
-    height: auto;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+
+  z-index: 9999;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-.bg-wrapper {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-
-  background: radial-gradient(
-    circle at right,
-    rgb(219, 126, 5) -60%,
-    rgba(0, 0, 0, 0.98) 100%
-  );
+/* estado ativo */
+.modal-livro.ativo {
+  opacity: 1;
+  pointer-events: all;
 }
 
+.modal-content-livro {
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  color: #fff;
+
+  padding: 30px;
+  border-radius: 16px;
+
+  width: 75%;
+  max-width: 600px;
+
+  max-height: 80vh;
+  overflow-y: auto;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+/* animação */
+.modal-livro.ativo .modal-content-livro {
+  transform: translateY(0);
+}
+
+/* =====================================================
+ * BACKGROUND / ELEMENTOS VISUAIS
+ * ===================================================== */
 .bg-pattern-top {
   position: absolute;
   top: 0;
@@ -228,7 +292,7 @@ p {
   width: 100%;
   height: 240px;
 
-  background-image: url('assets/pattern_cima.png');
+  background-image: url("assets/pattern_cima.png");
   background-repeat: repeat-x;
   background-size: auto 100%;
   z-index: 0;
@@ -241,10 +305,16 @@ p {
   width: 100%;
   height: 240px;
 
-  background-image: url('assets/pattern_baixo.png');
+  background-image: url("assets/pattern_baixo.png");
   background-repeat: repeat-x;
   background-size: auto 100%;
   z-index: 0;
+}
+
+.bg-pattern-top,
+.bg-pattern-bottom {
+  z-index: 1;
+  pointer-events: none;
 }
 
 .bg-firmina {
@@ -273,8 +343,18 @@ p {
   filter: brightness(1.1);
 }
 
-.bg-pattern-top,
-.bg-pattern-bottom {
-  z-index: 1;
-  pointer-events: none;
+/* =====================================================
+ * RESPONSIVIDADE
+ * ===================================================== */
+@media (max-width: 768px) {
+  .container-livro a {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .capa {
+    width: 180px;
+    height: auto;
+  }
 }
