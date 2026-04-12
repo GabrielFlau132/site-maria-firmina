@@ -78,16 +78,30 @@ async function abrirModalLivro(url, templateid, targetid, livro) {
   const clone = template.content.cloneNode(true);
 
   /* --------- PREENCHIMENTO DO TEMPLATE --------- */
-  clone.querySelector("h2").textContent = livro.titulo;
+  clone.querySelector(".livro-titulo").textContent = livro.titulo;
 
-  clone.querySelector("p:nth-of-type(1)").innerHTML =
-    `<strong>Autor:</strong> ${livro.autor}`;
+  clone.querySelector(".livro-info").innerHTML = `
+  <strong>Autor:</strong> ${livro.autor}<br>
+  <strong>Ano:</strong> ${livro.ano}<br>
+  <strong>Gênero:</strong> ${livro.genero}
+`;
 
-  clone.querySelector("p:nth-of-type(2)").innerHTML =
-    `<strong>Ano de Publicação:</strong> ${livro.ano}`;
+  // opcionais (não quebra se não existir no objeto)
+  if (livro.capa) {
+    clone.querySelector(".livro-capa").src = livro.capa;
+  }
 
-  clone.querySelector("p:nth-of-type(3)").innerHTML =
-    `<strong>Gênero:</strong> ${livro.genero}`;
+  if (livro.sinopse) {
+    clone.querySelector(".livro-sinopse").textContent = livro.sinopse;
+  }
+
+  if (livro.resumo) {
+    clone.querySelector(".livro-resumo").textContent = livro.resumo;
+  }
+
+  if (livro.pdf) {
+    clone.querySelector(".livro-download").href = livro.pdf;
+  }
 
   /* --------- RENDERIZAÇÃO --------- */
   const target = document.getElementById(targetid);

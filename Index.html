@@ -12,10 +12,23 @@
   <template id="template-modal-livro">
     <div class="modal-livro">
       <div class="modal-content-livro">
-        <h2>{{ livro.titulo }}</h2>
-        <p><strong>Autor:</strong> {{ livro.autor }}</p>
-        <p><strong>Ano de Publicação:</strong> {{ livro.ano }}</p>
-        <p><strong>Gênero:</strong> {{ livro.genero }}</p>
+        <div class="livro-layout">
+          <div class="col-esquerda">
+            <img class="livro-capa" />
+
+            <div class="livro-info"></div>
+
+            <a class="livro-download" target="_blank">Download do PDF</a>
+          </div>
+
+          <div class="col-direita">
+            <h2 class="livro-titulo"></h2>
+
+            <div class="livro-sinopse"></div>
+
+            <div class="livro-resumo"></div>
+          </div>
+        </div>
       </div>
     </div>
   </template>
