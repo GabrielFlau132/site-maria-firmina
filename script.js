@@ -12,19 +12,19 @@ fetch("data.json") // faz a requisição do arquivo data.json
     dados = data; // Armazena data na var global
 
     /* --------- INJEÇÃO DE CONTEÚDO NO DOM --------- */
-    document.getElementById("resumo").innerText =
+    document.getElementById("resumo").textContent =
       dados.biografia_resumida.texto;
 
-    document.getElementById("sinopse-ursula").innerText =
+    document.getElementById("sinopse-ursula").textContent =
       dados.sinopse_ursula.texto;
 
-    document.getElementById("sinopse-escrava").innerText =
+    document.getElementById("sinopse-escrava").textContent =
       dados.sinopse_escrava.texto;
 
-    document.getElementById("sinopse-gupeva").innerText =
+    document.getElementById("sinopse-gupeva").textContent =
       dados.sinopse_gupeva.texto;
 
-    document.getElementById("sinopse-cantos").innerText =
+    document.getElementById("sinopse-cantos").textContent =
       dados.sinopse_cantos.texto;
 
     /* --------- CONTROLE DE UI --------- */
@@ -44,7 +44,7 @@ function abrirModal() {
   const modal = document.getElementById("modal");
   const texto = document.getElementById("texto-completo");
 
-  texto.innerText = dados.biografia_completa.texto;
+  texto.textContent = dados.biografia_completa.texto;
 
   modal.classList.add("ativo");
 }

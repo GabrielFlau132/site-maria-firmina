@@ -13,6 +13,8 @@ body {
   position: relative;
   z-index: 10;
   pointer-events: auto;
+  padding-top: 100px;
+  padding-left: 20px;
 }
 
 .bg-wrapper {
@@ -30,19 +32,54 @@ body {
 /* =====================================================
  * TIPOGRAFIA
  * ===================================================== */
+@font-face {
+  font-family: "Zinjaro";
+  src: url("assets/Zinjaro_Std_Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 h1 {
-  margin: 20px auto;
-  color: rgb(219, 126, 5);
-  text-align: center;
+  position: absolute;
+
+  top: 15%;
+  left: 40%;
+
+  transform: translateX(-20%);
+
+  z-index: 1;
+
+  font-weight: normal;
+  font-family: "Zinjaro", serif;
+  font-size: 160px;
+
+  color: rgba(255, 255, 255, 0.788);
+
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.indent {
+  display: inline-block;
+  margin-left: 45rem;
 }
 
 h2 {
+  font-weight: normal;
+  font-family: "Zinjaro", serif;
+  font-size: 70px;
   color: rgb(231, 231, 231);
 }
 
 p {
-  font-size: large;
+  font-size: 40px;
   color: rgb(231, 231, 231);
+}
+
+#resumo {
+  color: #ffffff;
+  font-size: 32px;
+  line-height: 1.6;
 }
 
 .txt_bio {
@@ -71,28 +108,48 @@ p {
  * BIOGRAFIA
  * ===================================================== */
 .biografia {
-  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  background: linear-gradient(145deg, #181818, #2a2a2a);
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(6px);
   padding: 24px;
   border-radius: 16px;
-  max-width: 600px;
-  margin: 120px 0 20px 20px;
+  max-width: 900px;
+  margin: 100px 0 20px 20px;
 }
 
 /* =====================================================
  * BOTÕES
  * ===================================================== */
 .button {
-  background-color: hsl(0, 0%, 0%);
-  border: 2px solid rgb(50, 50, 50);
-  border-radius: 10px;
-  color: #ffffff;
-  font-size: 18px;
-  cursor: pointer;
+  display: inline-block;
+
+  margin-left: auto;
+
+  background: linear-gradient(135deg, #cf5d00, #ff7a00);
+  color: #fff;
+
+  text-decoration: none;
+  border: none;
+  outline: none;
+
+  padding: 12px 24px;
+  border-radius: 16px;
+
+  font-size: 24px;
+  font-weight: 600;
+
+  transition: all 0.2s ease;
+}
+.button:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(207, 93, 0, 0.4);
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
 /* =====================================================
  * OBRAS / LIVROS
  * ===================================================== */
@@ -101,7 +158,7 @@ p {
   background-color: transparent;
   padding: 10px;
   border-radius: 10px;
-  margin-top: 30vh;
+  margin-top: 12vh;
 }
 
 .obras ul {
@@ -135,7 +192,7 @@ p {
 }
 
 .container-livro p {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   line-height: 1.4;
   color: #dcdcdc;
 }
@@ -196,10 +253,12 @@ p {
   padding: 30px;
   border-radius: 16px;
 
-  width: 75%;
+  height: 75%;
 
   max-height: 80vh;
   overflow-y: auto;
+
+  max-width: 50vw;
 
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 
@@ -214,27 +273,33 @@ p {
 
 /* conteúdo */
 #texto-completo {
-  font-size: 16px;
+  padding-top: 5px;
+  font-size: 30px;
   line-height: 1.6;
   margin-bottom: 20px;
+  white-space: pre-line;
 }
 
 /* botão */
 .modal button {
-  background: rgb(219, 126, 5);
-  border: none;
-  border-radius: 8px;
+  margin: 0 auto;
 
-  padding: 10px 20px;
-  color: #000;
-  font-weight: bold;
+  background: linear-gradient(135deg, #cf5d00, #ff7a00);
+  color: #fff;
 
-  cursor: pointer;
-  transition: 0.2s;
+  text-decoration: none;
+  padding: 16px 28px;
+  border-radius: 10px;
+
+  font-size: 28px;
+  font-weight: 600;
+
+  transition: all 0.2s ease;
 }
 
 .modal button:hover {
-  opacity: 0.85;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(207, 93, 0, 0.4);
 }
 
 /* =====================================================
@@ -293,9 +358,11 @@ p {
 
 .livro-layout {
   display: grid;
-  grid-template-columns: 750px 1fr;
+  grid-template-columns: 35% 1fr;
   gap: 32px;
   height: 100%;
+
+  align-items: stretch;
 }
 
 /* -------- ESQUERDA -------- */
@@ -322,19 +389,22 @@ p {
   flex-direction: column;
   gap: 16px;
 
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 /* título */
 .livro-titulo {
-  font-size: 64px;
-  font-weight: 700;
+  font-weight: normal;
+  font-family: "Zinjaro", serif;
+  font-size: 7rem;
   text-align: center;
+
+  padding: 0;
+  margin-bottom: 0px;
 
   letter-spacing: 1px;
 
   border-bottom: 1px solid #333;
-  padding-bottom: 12px;
 }
 
 /* blocos de texto */
@@ -376,7 +446,7 @@ p {
 }
 
 .livro-bloco h3 {
-  font-size: 22px;
+  font-size: 3rem;
   margin-bottom: 8px;
   color: #fff;
   border-left: 4px solid #cf5d00;
@@ -385,11 +455,12 @@ p {
 
 .livro-resumo,
 .livro-contexto {
-  font-size: 22px;
+  font-size: 2rem;
   background: #252525;
   padding: 16px;
   border-radius: 8px;
   line-height: 1.5;
+  white-space: pre-line;
 }
 
 .livro-footer {
@@ -437,11 +508,10 @@ p {
 
 .bg-firmina {
   position: absolute;
-  right: -120px;
+  right: -420px;
   bottom: 240px;
 
-  height: 100%;
-  max-height: 1100px;
+  height: 80%;
 
   object-fit: contain;
 
@@ -454,11 +524,6 @@ p {
     box-shadow 0.3s ease-in-out;
 
   z-index: 5;
-}
-
-.bg-firmina:hover {
-  transform: scaleX(-1) scale(1.05) translateY(-20px);
-  filter: brightness(1.1);
 }
 
 /* =====================================================
