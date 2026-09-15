@@ -1,0 +1,498 @@
+body {
+  margin: 0;
+  background: black;
+}
+
+.conteudo {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  padding-top: 100px;
+  padding-left: 20px;
+}
+
+.bg-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+  background: radial-gradient(
+    circle at right,
+    rgb(219, 126, 5) -60%,
+    rgba(0, 0, 0, 0.98) 100%
+  );
+}
+
+@font-face {
+  font-family: "Zinjaro";
+  src: url("assets/Zinjaro_Std_Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  position: absolute;
+
+  top: 15%;
+  left: 40%;
+
+  transform: translateX(-20%);
+
+  z-index: 1;
+
+  font-weight: normal;
+  font-family: "Zinjaro", serif;
+  font-size: 160px;
+
+  color: rgba(255, 255, 255, 0.788);
+
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.indent {
+  display: inline-block;
+  margin-left: 45rem;
+}
+
+h2 {
+  font-weight: normal;
+  font-family: "Zinjaro", serif;
+  font-size: 70px;
+  color: rgb(231, 231, 231);
+}
+
+p {
+  font-size: 40px;
+  color: rgb(231, 231, 231);
+}
+
+#resumo {
+  color: #ffffff;
+  font-size: 32px;
+  line-height: 1.6;
+}
+
+.txt_bio {
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.sinopse {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.6;
+  flex: 1;
+  min-width: 0;
+}
+
+.txt_sinopse {
+  color: #ffffff;
+  font-size: 25px;
+  line-height: 1.6;
+  flex: 1;
+  min-width: 0;
+}
+
+.biografia {
+  background: linear-gradient(145deg, #181818, #2a2a2a);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  padding: 24px;
+  border-radius: 16px;
+  max-width: 900px;
+  margin: 100px 0 20px 20px;
+}
+
+.button {
+  display: inline-block;
+
+  margin-left: auto;
+
+  background: linear-gradient(135deg, #cf5d00, #ff7a00);
+  color: #fff;
+
+  text-decoration: none;
+  border: none;
+  outline: none;
+
+  padding: 12px 24px;
+  border-radius: 16px;
+
+  font-size: 24px;
+  font-weight: 600;
+
+  transition: all 0.2s ease;
+}
+.button:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(207, 93, 0, 0.4);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.obras {
+  width: auto;
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 12vh;
+}
+
+.obras ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+.container-livro {
+  width: auto;
+  background: linear-gradient(145deg, #2e2e2e, #3a3a3a);
+  padding: 15px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+}
+
+.container-livro:hover {
+  transform: translateY(-30px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8);
+}
+
+.container-livro h3 {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+}
+
+.container-livro p {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: #dcdcdc;
+}
+
+.container-livro a {
+  text-decoration: none;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  max-width: 40vh;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.capa {
+  width: 210px;
+  height: 330px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal.ativo {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal > div {
+  background: #1e1e1e;
+  color: #fff;
+
+  padding: 30px;
+  border-radius: 16px;
+
+  height: 75%;
+
+  max-height: 80vh;
+  overflow-y: auto;
+
+  max-width: 50vw;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.modal.ativo > div {
+  transform: translateY(0);
+}
+
+#texto-completo {
+  padding-top: 5px;
+  font-size: 30px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  white-space: pre-line;
+}
+
+.modal button {
+  margin: 0 auto;
+
+  background: linear-gradient(135deg, #cf5d00, #ff7a00);
+  color: #fff;
+
+  text-decoration: none;
+  padding: 16px 28px;
+  border-radius: 10px;
+
+  font-size: 28px;
+  font-weight: 600;
+
+  transition: all 0.2s ease;
+}
+
+.modal button:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(207, 93, 0, 0.4);
+}
+
+.modal-livro {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+
+  z-index: 9999;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-livro.ativo {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-content-livro {
+  background: #1c1c1c;
+  color: #eaeaea;
+
+  width: 85vw;
+  height: 85vh;
+
+  border-radius: 12px;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+
+  transform: translateY(20px);
+  transition: transform 0.25s ease;
+}
+
+.modal-livro.ativo .modal-content-livro {
+  transform: translateY(0);
+}
+
+.livro-layout {
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  gap: 32px;
+  height: 100%;
+
+  align-items: stretch;
+}
+
+.col-esquerda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.livro-capa {
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.col-direita {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  overflow-y: hidden;
+}
+
+.livro-titulo {
+  font-weight: normal;
+  font-family: "Zinjaro", serif;
+  font-size: 7rem;
+  text-align: center;
+
+  padding: 0;
+  margin-bottom: 0px;
+
+  letter-spacing: 1px;
+
+  border-bottom: 1px solid #333;
+}
+
+.col-direita {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  overflow-y: auto;
+  padding-right: 12px;
+}
+
+.livro-info {
+  font-size: 24px;
+  color: #aaa;
+}
+
+.livro-download {
+  margin: 0 auto;
+
+  background: linear-gradient(135deg, #cf5d00, #ff7a00);
+  color: #fff;
+
+  text-decoration: none;
+  padding: 20px 32px;
+  border-radius: 10px;
+
+  font-size: 28px;
+  font-weight: 600;
+
+  transition: all 0.2s ease;
+}
+
+.livro-download:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(207, 93, 0, 0.4);
+}
+
+.livro-bloco h3 {
+  font-size: 3rem;
+  margin-bottom: 8px;
+  color: #fff;
+  border-left: 4px solid #cf5d00;
+  padding-left: 10px;
+}
+
+.livro-resumo,
+.livro-contexto {
+  font-size: 2rem;
+  background: #252525;
+  padding: 16px;
+  border-radius: 8px;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.livro-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  margin-bottom: 50px;
+}
+
+.bg-pattern-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 240px;
+
+  background-image: url("assets/pattern_cima.png");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  z-index: 0;
+}
+
+.bg-pattern-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 240px;
+
+  background-image: url("assets/pattern_baixo.png");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  z-index: 0;
+}
+
+.bg-pattern-top,
+.bg-pattern-bottom {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bg-firmina {
+  position: absolute;
+  right: -420px;
+  bottom: 240px;
+
+  height: 80%;
+
+  object-fit: contain;
+
+  transform: scaleX(-1) scale(1);
+  transform-origin: bottom center;
+
+  pointer-events: auto;
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .container-livro a {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .capa {
+    width: 180px;
+    height: auto;
+  }
+}
